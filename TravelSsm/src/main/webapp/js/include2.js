@@ -25,7 +25,6 @@ $(function () {
 
 function setHeader(){
 	$.get("/TravelSsm/user/getUser",{},function(data){
-		console.log(data);
 		if(data == null){
 			$(".login").hide();
 			$(".login_out").show();

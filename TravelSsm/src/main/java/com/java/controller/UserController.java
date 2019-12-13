@@ -158,7 +158,7 @@ public class UserController {
 		if(user != null) {
 			boolean flag =  userService.updateStatus(user);
 			if(flag != false) {
-				msg = "<p>邮箱激活成功。请到登录页面登录<a href = '/TravelSsm/html/login.html' >点击跳转登录页面</a></p>";
+				msg = "<p>邮箱激活成功。请到登录页面登录<a href ='/TravelSsm/html/login.html' >点击跳转登录页面</a></p>";
 			}else {
 				msg = "邮箱验证失败";
 			}

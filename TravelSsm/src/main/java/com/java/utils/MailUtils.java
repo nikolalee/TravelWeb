@@ -60,7 +60,7 @@ public class MailUtils {
 			//设置邮件内容
 			String content = "<html><head></head><body>"
 				+ "<h1>点击链接激活邮箱『黑马旅游网』:</h1>"
-				+ "<a href='localhost:8080/TravelSsm/user/activate?code="+code+"'>"
+				+ "<a href='http://106.54.192.87:8080/TravelSsm/user/activate?code="+code+"'>"
 				+ "点击激活邮箱"		
 				+ "</a>"
 				+"</body></html>";

@@ -9,8 +9,7 @@ function showData(cid,rname,currentPage){
 	$.get("/TravelSsm/page/getPageBean",
 		{cid:cid,currentPage:currentPage,rname:rname},
 		function(data){
-//		console.log(data.list);
-		console.log(data);
+//		console.log(data);
 		var list = data.list;
 //		var curPage = data.currentPage;
 		//显示列表信息

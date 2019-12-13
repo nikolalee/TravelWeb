@@ -12,13 +12,36 @@ $(function () {
     setHeader();
     
     $.get("/TravelSsm/category/findAllAsJson",{},function(data){
-//    	console.log(data);
-    	var html = '<li class="nav-active"><a href="../index.html">首页</a></li>';
+//    	console.log(window.location.pathname);
+    	
+    	//设置目录高亮
+    	var cid = getParameter("cid");
+    	var index = 0;
+    	if(cid == null){
+    		if(window.location.pathname=="/TravelSsm/html/favoriterank.html"){
+    			index = 9;
+    		}
+    	}else{
+    		index = Number(cid);
+    	}
+    	if(index == 0){
+    		var html = '<li class="nav-active"><a href="../index.html">首页</a></li>';
+    	}else{
+    		var html = '<li ><a href="../index.html">首页</a></li>';
+    	}
     	for(var i = 0;i < data.length;i++){
-    		var li = '<li><a href="route_list.html?cid='+data[i].cid+'">'+ data[i].cname +'</a></li>'
+    		if(index == i + 1){
+    			var li = '<li class="nav-active"><a href="route_list.html?cid='+data[i].cid+'">'+ data[i].cname +'</a></li>';
+    		}else{
+    			var li = '<li><a href="route_list.html?cid='+data[i].cid+'">'+ data[i].cname +'</a></li>';
+    		}
     		html += li;
     	}
-    	html += '<li><a href="favoriterank.html">收藏排行榜</a></li>';
+    	if(index == 9){
+    		html += '<li class="nav-active"><a href="favoriterank.html">收藏排行榜</a></li>';
+    	}else{
+    		html += '<li ><a href="favoriterank.html">收藏排行榜</a></li>';
+    	}
     	
     	$("#category").html(html);
     });
